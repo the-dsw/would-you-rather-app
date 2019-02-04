@@ -23,4 +23,3 @@ export function saveQuestionAnswer (info) {
     return _saveQuestionAnswer(info)
 }
 
-console.log(_getUsers())

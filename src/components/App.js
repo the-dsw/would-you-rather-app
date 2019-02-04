@@ -1,6 +1,15 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
+import {BrowserRouter as Router, Route, Switch,} from "react-router-dom";
 import {connect} from 'react-redux'
 import {handleInitialData} from "../actions/shared";
+import {LoadingBar} from 'react-redux-loading'
+import Dashboard from './Dashboard'
+import NewQuestion from './NewQuestion'
+import LeaderBoard from './LeaderBoard'
+import NoMatch from './NoMatch'
+import PrivateRoute from './PrivateRoute'
+import Login from './Login'
+import Nav from './Nav'
 
 class App extends Component {
   componentDidMount() {
@@ -9,11 +18,34 @@ class App extends Component {
 
   render() {
     return (
-      <div>
-        Started App
-      </div>
+        <Router>
+          <Fragment>
+             <LoadingBar />
+              <div className="container">
+               <Nav />
+                {this.props.loading === true
+                      ? null
+                      : <Switch>
+                            <Route exact path="/" component={Login} />
+                            <PrivateRoute path="/dashboard" component={Dashboard} />
+                            <PrivateRoute path="/question/:id" component={NewQuestion} />
+                            <PrivateRoute path="/add" component={NewQuestion} />
+                            <PrivateRoute path="/leaderboard" component={LeaderBoard} />
+                            <Route component={NoMatch} />
+                        </Switch>
+                }
+              </div>
+          </Fragment>
+         </Router>
+
     );
   }
 }
 
-export default connect()(App);
+function mapStateToProps ({ loadingBar }) {
+  return {
+    loading: loadingBar > 0,
+  }
+}
+
+export default connect(mapStateToProps)(App);
