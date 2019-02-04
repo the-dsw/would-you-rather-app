@@ -6,5 +6,6 @@ import questions from './questions'
 export default combineReducers({
     authedUser,
     users,
-    questions
+    questions,
+    
 })
