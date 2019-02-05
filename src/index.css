@@ -37,6 +37,8 @@ li {
   color: #707070;
 }
 
+button:focus {outline:0;}
+
 a {
   text-decoration: none;
   color: #707070;
@@ -50,6 +52,7 @@ a:hover {
 
 a.active {
   color:#69A425 !important;
+
 }
 
 a.active:after {
@@ -64,6 +67,20 @@ a.active:after {
   right: 0;
 }
 
+.dd-list {
+  border: 1px solid #888888;
+}
+
+.dd-list-item {
+  list-style-type: none;
+  padding: 5px;
+  color: #707070;
+}
+
+.nav-item {
+  margin-top: -14px;
+}
+
 .loginContainer {
   display: flex;
   flex-direction: column;
@@ -72,7 +89,7 @@ a.active:after {
   margin-top: 50px;
   align-items: center;
   align-content: center;
-  border: 1px solid rgba(112, 112, 112, 0.51);
+  border: 1px solid #EDEDED;
   text-align: center;
   font-family: graphikmedium;
 }
@@ -89,6 +106,26 @@ a.active:after {
   font-size: 16px;
   line-height: 16px;
   font-weight: bold;
+  position: relative;
+}
+
+.dd-list {
+  position: absolute;
+  top: 23px;
+  width: 290px;
+  right: -117px;
+  padding: 10px 20px;
+  background-color: honeydew;
+  border: 1px solid #EDEDED;
+}
+
+.dd-header-title {
+  cursor: pointer;
+}
+
+.dd-header-title svg {
+  vertical-align: bottom;
+  margin-left: 5px;
 }
 
 .login-welcome {
@@ -113,10 +150,6 @@ a.active:after {
   line-height: 5px;
 }
 
-.login-changer {
-  margin-top: 10px;
-}
-
 .avatar-login {
   height: 30px;
   border-radius: 25px;
@@ -127,6 +160,7 @@ a.active:after {
   display: flex;
  flex-direction: column;
 }
+
 
 .avatar-user {
   display: inline-flex;
@@ -147,13 +181,22 @@ img {
   cursor: pointer;
 }
 
+.auth-button:hover {
+  background-color: #69A425;
+  color: #fff;
+}
+
 .logout-button {
   margin-left: 10px;
-  padding: 15px;
+  height: 36px;
+  width: 80px;
   color: #e5e5e5;
   background-color: #888888;
-  border-radius: 25px;
+  border-radius: 10px;
   cursor: pointer;
 }
 
+.logout-button:hover {
+  background-color: #69A425;
+}
 

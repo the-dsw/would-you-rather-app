@@ -1,8 +1,8 @@
 import React, { Component, Fragment } from 'react';
-import {BrowserRouter as Router, Route, Switch,} from "react-router-dom";
+import {BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import {connect} from 'react-redux'
 import {handleInitialData} from "../actions/shared";
-import {LoadingBar} from 'react-redux-loading'
+import LoadingBar from 'react-redux-loading'
 import Dashboard from './Dashboard'
 import NewQuestion from './NewQuestion'
 import LeaderBoard from './LeaderBoard'
@@ -20,7 +20,7 @@ class App extends Component {
     return (
         <Router>
           <Fragment>
-             <LoadingBar />
+             <LoadingBar style={{ backgroundColor: '#69A425' }}/>
               <div className="container">
                <Nav />
                 {this.props.loading === true
@@ -44,7 +44,7 @@ class App extends Component {
 
 function mapStateToProps ({ loadingBar }) {
   return {
-    loading: loadingBar > 0,
+    loading: loadingBar > 0
   }
 }
 
