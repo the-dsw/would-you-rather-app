@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { setAuthedUser } from '../actions/authedUser.js'
-import { Redirect } from 'react-router-dom'
+import { Redirect, NavLink } from 'react-router-dom'
 import auth from '../utils/auth'
 
 class AuthUser extends Component {
@@ -38,6 +38,7 @@ class AuthUser extends Component {
                     <h3 className="auth-user-name">{`${users[id].name}`}</h3>
                     <button
                         className="auth-button"
+                        to="/dashboard"
                         onClick={() => this.handleLogin(id)}
                     >
                         Log in
@@ -51,7 +52,7 @@ class AuthUser extends Component {
 function mapStateToProps({ authedUser, users }, { id }) {
     return {
         id,
-        users
+        users,
     }
 }
 

@@ -13,6 +13,14 @@ body {
   margin: 0 auto;
 }
 
+.notMatch {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+    align-items: center;
+}
+
 .nav {
   border-bottom: 1px solid #69A425;
   width: 100%;
@@ -20,9 +28,8 @@ body {
   font-size: 20px;
   line-height: 22px;
   font-weight: normal;
-
-
 }
+
 .nav ul {
   display: flex;
   flex-direction: row;

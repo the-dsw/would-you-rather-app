@@ -1,12 +1,12 @@
 import React, {Component} from 'react'
-import { NavLink } from 'react-router-dom'
+import { NavLink, withRouter } from 'react-router-dom'
 import { connect } from 'react-redux'
 import AuthButton from './AuthButton'
 
 class Nav extends Component {
 
     render() {
-        const { user, authedUser } = this.props
+        const { user, authedUser, history } = this.props
 
         return (
             <nav className="nav">
@@ -14,21 +14,21 @@ class Nav extends Component {
                     <li className="link-wrapper">
                         <NavLink
                             to="/dashboard"
-                            activeClassName="active" exact>
+                            activeClassName="active">
                             Home
                         </NavLink>
                     </li>
                     <li className="link-wrapper">
                         <NavLink
                             to="/add"
-                            activeClassName="active" exact>
+                            activeClassName="active">
                             New Question
                         </NavLink>
                     </li>
                     <li className="link-wrapper">
                         <NavLink
                             to="/leaderboard"
-                            activeClassName="active" exact>
+                            activeClassName="active">
                             Leader Board
                         </NavLink>
                     </li>
@@ -57,8 +57,8 @@ function mapStateToProps({users, authedUser}) {
     const user = users[authedUser]
     return {
         user,
-        authedUser
+        authedUser,
     }
 }
 
-export default connect(mapStateToProps)(Nav)
+export default withRouter(connect(mapStateToProps)(Nav))
