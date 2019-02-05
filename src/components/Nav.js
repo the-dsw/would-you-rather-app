@@ -6,7 +6,7 @@ import AuthButton from './AuthButton'
 class Nav extends Component {
 
     render() {
-        const { user, authedUser, history } = this.props
+        const { user, authedUser } = this.props
 
         return (
             <nav className="nav">
