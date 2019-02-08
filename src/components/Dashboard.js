@@ -3,13 +3,59 @@ import {connect} from 'react-redux'
 import Question from './Question'
 
 class Dashboard extends  Component {
+    state = {
+        tab: 0,
+        isActive: false
+    }
+
+    handleUnaswered = () => {
+        this.setState(prevState => ({
+            tab: prevState.tab = 0,
+            isActive: !prevState.isActive
+        }))
+    }
+
+    handleAswered = () => {
+        this.setState(prevState => ({
+            tab: prevState.tab = 1,
+            isActive: !prevState.isActive
+        }))
+
+    }
+
     render() {
+        const { tab, isActive } = this.state
+        const { answeredQuestions, unansweredQuestions } = this.props
+
+        console.log(answeredQuestions)
+        console.log(unansweredQuestions)
+
+
         return (
             <div className="dashboard-container">
+                <div className="dashboard-header">
+                    <div
+                        className={!isActive ? "dashboard-unanswered is-active" : "dashboard-unanswered"}
+                        onClick={() => this.handleUnaswered()}>
+                        Unanswered Questions
+                    </div>
+                    <div
+                        className={isActive ? "dashboard-answered is-active": "dashboard-answered"}
+                        onClick={() => this.handleAswered()}>
+                        Answered Questions
+                    </div>
+
+                </div>
                 <ul className="dashboard-list">
-                    {this.props.questionIds.map(id => (
+                    {tab === 1 &&  Object.keys(answeredQuestions).map(id => (
                         <li key={id}>
-                           <Question id={id} />
+                           <Question question={answeredQuestions[id]} />
+                        </li>
+                    ))}
+
+                    {tab === 0 && Object.keys(unansweredQuestions).map(id => (
+                        <li key={id}>
+                            <Question question={unansweredQuestions[id]} />
                         </li>
                     ))}
                 </ul>
@@ -18,10 +64,26 @@ class Dashboard extends  Component {
     }
 }
 
-function mapStateToProps({ questions }) {
+
+function mapStateToProps({ questions, users, authedUser }) {
+    const answeredQuestions = []
+    const unansweredQuestions = []
+
+    Object.keys(questions)
+        .sort((a,b) => questions[b].timestamp - questions[a].timestamp)
+        .map(id => questions[id])
+        .filter(q => {
+            if (users[authedUser].answers.hasOwnProperty(q.id)) {
+                answeredQuestions.push(q)
+            } else {
+                unansweredQuestions.push(q)
+            }
+    })
+
     return {
-        questionIds: Object.keys(questions)
-            .sort((a,b) => questions[b].timestamp - questions[a].timestamp)
+        answeredQuestions,
+        unansweredQuestions,
+        authedUser,
     };
 }
 

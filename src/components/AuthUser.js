@@ -49,7 +49,7 @@ class AuthUser extends Component {
     }
 }
 
-function mapStateToProps({ authedUser, users }, { id }) {
+function mapStateToProps({ users }, { id }) {
     return {
         id,
         users,
