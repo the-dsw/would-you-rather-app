@@ -1,5 +1,6 @@
 import React from 'react'
 import ProgressBar from './ProgressBar'
+import { FaThumbsUp } from "react-icons/fa";
 
 const results = ({
     question,
@@ -26,7 +27,10 @@ const results = ({
                 <div className="vl-results"></div>
                 <div className="poll-results">
                     <h3>Results:</h3>
-                    <div className={userAnswer === 'optionOne' ? "result-view selected-option" : "result-view"}>
+                    <div className={userAnswer === 'optionOne' ? "your-vote-one" : "your-vote-two"}>
+                        <FaThumbsUp style={{color: "#fff"}} />
+                    </div>
+                    <div className={userAnswer === 'optionOne' ? "result-view selected-option " : "result-view"}>
                         {userAnswer === 'optionOne'
                             ? <span className="text-one">Would you rather {question[questionAnswered].text} ?</span>
                             : <span>Would you rather {question.optionOne.text} ?</span>
@@ -39,7 +43,7 @@ const results = ({
                             Total of {totalVotesOptionOne} votes
                         </p>
                     </div>
-                    <div className={userAnswer === 'optionTwo' ? "result-view selected-option" : "result-view"}>
+                    <div className={userAnswer === 'optionTwo' ? "result-view selected-option " : "result-view"}>
                         {userAnswer === 'optionTwo'
                             ? <span className="text-two">Would you rather {question[questionAnswered].text} ?</span>
                             : <span>Would you rather {question.optionTwo.text} ?</span>

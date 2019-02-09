@@ -29,7 +29,7 @@ const votesForm = ({
                         checked={selectedOption === 'optionOne'}
                         onChange={onChange}
                     />
-                    <label for="group1"> {question.optionOne.text}</label><br /><br />
+                    <label htmlFor="group1"> {question.optionOne.text}</label><br /><br />
                     <input
                         type="radio"
                         name="group1"
@@ -38,7 +38,7 @@ const votesForm = ({
                         checked={selectedOption === 'optionTwo'}
                         onChange={onChange}
                     />
-                    <label for="group2"> {question.optionTwo.text}</label>
+                    <label htmlFor="group2"> {question.optionTwo.text}</label>
                     <button type="submit">Submit</button>
                 </form>
             </div>

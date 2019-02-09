@@ -529,7 +529,8 @@ img {
 .poll-results {
   display: flex;
   flex-direction: column;
-  padding: 0 10px 0 0;
+  padding: 0 30px 0 0;
+  position: relative;
 
 }
 
@@ -554,8 +555,9 @@ img {
 .result-view {
   display: flex;
   flex-direction: column;
+  width: 320px;
   color: #707070;
-  margin-bottom: 10px;
+  margin-bottom: 25px;
   border: 1px solid #707070;
   padding: 10px;
   font-family: graphikmedium;
@@ -597,6 +599,7 @@ img {
 }
 
 .avatar-results {
+  position: relative;
   height: 120px;
   border-radius: 50%;
   margin: 15px;
@@ -608,4 +611,42 @@ img {
   align-items: center;
   width: 100%;
   padding-top: 5px;
+}
+
+.your-vote-one {
+  height: 30px;
+  width: 30px;
+  border-radius: 50%;
+  background-color: goldenrod;
+  color: #fff;
+  text-align: center;
+  padding: 10px;
+  position: absolute;
+  top: 20px;
+  right: 10px;
+}
+
+.your-vote-two {
+  height: 30px;
+  width: 30px;
+  border-radius: 50%;
+  background-color: goldenrod;
+  color: #fff;
+  text-align: center;
+  padding: 10px;
+  position: absolute;
+  top: 190px;
+  right: 10px;
+}
+
+.your-vote-one svg {
+  vertical-align: middle;
+  width: 25px;
+  height: 25px;
+}
+
+.your-vote-two svg {
+  vertical-align: middle;
+  width: 25px;
+  height: 25px;
 }

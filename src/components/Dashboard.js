@@ -70,11 +70,11 @@ function mapStateToProps({ questions, users, authedUser }) {
         .map(id => questions[id])
         .filter(q => {
             if (users[authedUser].answers.hasOwnProperty(q.id)) {
-                answeredQuestions.push(q)
+                return answeredQuestions.push(q)
             } else {
-                unansweredQuestions.push(q)
+                return unansweredQuestions.push(q)
             }
-    })
+        })
 
     return {
         answeredQuestions,
