@@ -24,17 +24,21 @@ const votesForm = ({
                     <input
                         type="radio"
                         name="group1"
+                        id="group1"
                         value="optionOne"
                         checked={selectedOption === 'optionOne'}
                         onChange={onChange}
-                    /><span> {question.optionOne.text}</span><br />
+                    />
+                    <label for="group1"> {question.optionOne.text}</label><br /><br />
                     <input
                         type="radio"
                         name="group1"
+                        id="group2"
                         value="optionTwo"
                         checked={selectedOption === 'optionTwo'}
                         onChange={onChange}
-                    /><span> {question.optionTwo.text}</span>
+                    />
+                    <label for="group2"> {question.optionTwo.text}</label>
                     <button type="submit">Submit</button>
                 </form>
             </div>

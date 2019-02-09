@@ -449,7 +449,7 @@ img {
 }
 
 .poll-view button {
-  width: 300px;
+  width: 370px;
   padding: 10px;
   background-color: #69A425;
   color: #fff;
@@ -467,13 +467,59 @@ img {
   margin: 15px 20px 0;
 }
 
-.poll-form span {
+
+[type="radio"]:checked,
+[type="radio"]:not(:checked) {
+  position: absolute;
+  left: -9999px;
+}
+[type="radio"]:checked + label,
+[type="radio"]:not(:checked) + label
+{
+  position: relative;
+  padding-left: 28px;
+  cursor: pointer;
   font-family: graphikmedium;
   font-size: 18px;
   font-weight: normal;
   line-height: 20px;
+  display: inline-block;
   color: #707070;
-  margin-left: 10px;
+}
+[type="radio"]:checked + label:before,
+[type="radio"]:not(:checked) + label:before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 18px;
+  height: 18px;
+  border: 1px solid #ddd;
+  border-radius: 100%;
+  background: #fff;
+}
+[type="radio"]:checked + label:after,
+[type="radio"]:not(:checked) + label:after {
+  content: '';
+  width: 12px;
+  height: 12px;
+  background: #707070;
+  position: absolute;
+  top: 4px;
+  left: 4px;
+  border-radius: 100%;
+  -webkit-transition: all 0.2s ease;
+  transition: all 0.2s ease;
+}
+[type="radio"]:not(:checked) + label:after {
+  opacity: 0;
+  -webkit-transform: scale(0);
+  transform: scale(0);
+}
+[type="radio"]:checked + label:after {
+  opacity: 1;
+  -webkit-transform: scale(1);
+  transform: scale(1);
 }
 
 .poll-form input {
@@ -516,6 +562,13 @@ img {
   font-size: 18px;
   font-weight: normal;
   line-height: 20px;
+  border-radius: 3px;
+}
+
+.result-view p {
+  text-align: center;
+  font-size: 14px;
+  line-height: 20px;
 }
 
 .progress-bar {
@@ -523,7 +576,6 @@ img {
   height: 20px;
   border: 1px solid #707070;
   background-color: #e5e5e5;
-
 }
 
 .filler {
@@ -545,7 +597,7 @@ img {
 }
 
 .avatar-results {
-  height: 100px;
+  height: 120px;
   border-radius: 50%;
   margin: 15px;
 }
@@ -555,5 +607,5 @@ img {
   justify-content: center;
   align-items: center;
   width: 100%;
-  padding: 5px;
+  padding-top: 5px;
 }

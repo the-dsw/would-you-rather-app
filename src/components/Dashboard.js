@@ -27,10 +27,6 @@ class Dashboard extends  Component {
         const { tab, isActive } = this.state
         const { answeredQuestions, unansweredQuestions } = this.props
 
-        console.log(answeredQuestions)
-        console.log(unansweredQuestions)
-
-
         return (
             <div className="dashboard-container">
                 <div className="dashboard-header">
