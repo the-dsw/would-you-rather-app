@@ -26,9 +26,7 @@ class NewQuestion extends Component {
         const text = e.target.value
         const name = e.target.name
 
-        this.setState(() => ({
-            [name]: text
-        }))
+        this.setState({[name]: text})
     }
 
     render() {

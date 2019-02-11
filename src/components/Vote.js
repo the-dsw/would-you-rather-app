@@ -19,13 +19,9 @@ class Vote extends Component {
 
     handleFormSubmit = e => {
         e.preventDefault()
-        const { dispatch, authedUser, questionId} = this.props
-        const { selectedOption } = this.state
-        dispatch(handleSaveQuestionAnswer({
-            authedUser,
-            qid: questionId,
-            answer: selectedOption
-        }))
+        const { questionId, authedUser } = this.props
+        const { selectedOption} = this.state
+        this.props.handleSaveQuestionAnswer(authedUser, questionId, selectedOption)
     }
 
     render() {
@@ -87,4 +83,14 @@ function mapStateToProps ({ questions, users, authedUser}, props ) {
     }
 }
 
-export default connect(mapStateToProps)(Vote)
+function mapDispatchToProps (dispatch) {
+    return {
+        handleSaveQuestionAnswer: (authedUser, questionId, selectedOption) => dispatch(handleSaveQuestionAnswer({
+            authedUser,
+            qid: questionId,
+            answer: selectedOption
+        }))
+    }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Vote)
