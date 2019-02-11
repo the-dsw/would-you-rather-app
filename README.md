@@ -1,7 +1,7 @@
 
 # Would You Rather?: A Game App
 
-This is the final project for React/Redux course by building a web app that lets a user play the “Would You Rather?” game.
+This is the final project for Udacity's React/Redux course by building a web app that lets a user play the “Would You Rather?” game.
 
 ## Application Functionality
 
