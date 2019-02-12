@@ -26,14 +26,16 @@ class App extends Component {
                <Nav />
                 {this.props.loading === true
                       ? null
-                      : <Switch>
-                            <Route exact path="/" component={Login} />
-                            <PrivateRoute path="/dashboard" component={Dashboard} />
-                            <PrivateRoute path="/question/:id" component={Vote} />
-                            <PrivateRoute path="/add" component={NewQuestion} />
-                            <PrivateRoute path="/leaderboard" component={LeaderBoard} />
-                            <Route component={NoMatch} />
-                        </Switch>
+                      : <div>
+                            <Switch>
+                                <Route exact path="/"  component={Login} />
+                                <PrivateRoute exact path="/dashboard" component={Dashboard} />
+                                <PrivateRoute exact path="/question/:id" component={Vote} />
+                                <PrivateRoute exact path="/add" component={NewQuestion} />
+                                <PrivateRoute exact path="/leaderboard" component={LeaderBoard} />
+                                <Route component={NoMatch} />
+                            </Switch>
+                        </div>
                 }
               </div>
           </Fragment>
@@ -45,7 +47,7 @@ class App extends Component {
 
 function mapStateToProps ({ loadingBar }) {
   return {
-    loading: loadingBar > 0
+    loading: loadingBar > 0,
   }
 }
 

@@ -13,6 +13,7 @@ class Nav extends Component {
                  <ul>
                     <li className="link-wrapper">
                         <NavLink
+                            exact
                             to="/dashboard"
                             activeClassName="active">
                             Home
@@ -20,6 +21,7 @@ class Nav extends Component {
                     </li>
                     <li className="link-wrapper">
                         <NavLink
+                            exact
                             to="/add"
                             activeClassName="active">
                             New Question
@@ -27,6 +29,7 @@ class Nav extends Component {
                     </li>
                     <li className="link-wrapper">
                         <NavLink
+                            exact
                             to="/leaderboard"
                             activeClassName="active">
                             Leader Board

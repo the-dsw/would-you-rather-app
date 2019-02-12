@@ -26,7 +26,6 @@ class Dashboard extends  Component {
     render() {
         const { tab, isActive } = this.state
         const { answeredQuestions, unansweredQuestions } = this.props
-
         return (
             <div className="dashboard-container">
                 <div className="dashboard-header">

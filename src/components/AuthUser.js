@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { setAuthedUser } from '../actions/authedUser.js'
-import { Redirect } from 'react-router-dom'
+import { Redirect, withRouter } from 'react-router-dom'
 import auth from '../utils/auth'
 
 class AuthUser extends Component {
@@ -14,16 +14,20 @@ class AuthUser extends Component {
 
         auth.authenticate(() => {
             dispatch(setAuthedUser(id))
-            this.setState({ redirectToReferrer: true })
+            this.setState(() => ({ redirectToReferrer: true }))
+
         })
     }
 
     render() {
-        const { redirectToReferrer } = this.state
-        const { id, users } = this.props
+        let { redirectToReferrer } = this.state;
+        const { id, users, location } = this.props
+        let { from } = location.state || { from: { pathname: '/' }}
 
-        if (redirectToReferrer) {
-            return <Redirect to="/dashboard" />
+        if (redirectToReferrer === true) {
+            return (
+                <Redirect to={from} />
+            )
         }
 
 
@@ -38,7 +42,6 @@ class AuthUser extends Component {
                     <h3 className="auth-user-name">{`${users[id].name}`}</h3>
                     <button
                         className="auth-button"
-                        to="/dashboard"
                         onClick={() => this.handleLogin(id)}
                     >
                         Log in
@@ -56,4 +59,4 @@ function mapStateToProps({ users }, { id }) {
     }
 }
 
-export default connect(mapStateToProps)(AuthUser)
+export default withRouter(connect(mapStateToProps)(AuthUser))
