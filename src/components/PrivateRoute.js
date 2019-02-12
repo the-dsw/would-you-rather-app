@@ -6,6 +6,7 @@ import {
 import auth from '../utils/auth'
 
 export default function PrivateRoute({ component: Component, ...rest }) {
+
     return (
         <Route
             {...rest}

@@ -22,7 +22,7 @@ class AuthUser extends Component {
     render() {
         let { redirectToReferrer } = this.state;
         const { id, users, location } = this.props
-        let { from } = location.state || { from: { pathname: '/' }}
+        let { from } = location.state || { from: { pathname: '/dashboard' }}
 
         if (redirectToReferrer === true) {
             return (
