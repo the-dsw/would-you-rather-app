@@ -4,6 +4,7 @@ import { FaThumbsUp } from "react-icons/fa";
 
 const results = ({
     question,
+    users,
     userAnswer,
     questionAnswered,
     optionTextOnePercentage,
@@ -20,8 +21,8 @@ const results = ({
             </div>
             <div className="results-body">
                 <img
-                    src={require(`../images/${question.avatar}.jpg`)}
-                    alt={`Avatar of ${question.avatar}`}
+                    src={require(`../images/${users[question.author].avatarURL}.jpg`)}
+                    alt={`Avatar of ${users[question.author].avatarURL}`}
                     className="avatar-results"
                 />
                 <div className="vl-results"></div>

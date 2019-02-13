@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
+import { Redirect } from 'react-router-dom'
 import VotesForm from './VotesForm'
 import Results from './Results'
-import { formatQuestion } from "../utils/helpers";
 import { handleSaveQuestionAnswer } from "../actions/questions";
 
 
@@ -26,12 +26,16 @@ class Vote extends Component {
 
     render() {
         const {
-            users,
-            authedUser,
             question,
+            authedUser,
+            noQuestion,
             questionAnswered,
-            questionId
+            users
         } = this.props
+
+        if (noQuestion) {
+           return <Redirect to="/" />
+        }
 
         const { selectedOption } = this.state
 
@@ -42,10 +46,11 @@ class Vote extends Component {
         const optionTextOnePercentage = parseInt((totalVotesOptionOne / totalVotes) * 100).toFixed(2)
         const optionTextTwoPercentage = parseInt((totalVotesOptionTwo / totalVotes) * 100).toFixed(2)
 
-        if (questionAnswered === undefined) {
+        if (!questionAnswered) {
             return (
                 <VotesForm
                     question={question}
+                    users={users}
                     onSubmit={this.handleFormSubmit}
                     selectedOption={selectedOption}
                     onChange={this.handleOptionChange}
@@ -53,10 +58,12 @@ class Vote extends Component {
 
             )
         } else {
+
             return (
                 <Results
                     question={question}
-                    userAnswer={users[authedUser].answers[questionId]}
+                    users={users}
+                    userAnswer={users[authedUser].answers[question.id]}
                     questionAnswered={questionAnswered}
                     optionTextOnePercentage={optionTextOnePercentage}
                     optionTextTwoPercentage={optionTextTwoPercentage}
@@ -73,12 +80,14 @@ function mapStateToProps ({ questions, users, authedUser}, props ) {
     const questionId = props.match.params.id
     const question = questions[questionId]
     const questionAnswered = users[authedUser].answers[questionId]
+    const noQuestion = !questions[questionId]
     return {
         questions,
+        question,
+        noQuestion,
+        questionAnswered,
         users,
         authedUser,
-        question: formatQuestion( question, users[question.author], authedUser),
-        questionAnswered,
         questionId
     }
 }

@@ -2,6 +2,7 @@ import React from 'react'
 
 const votesForm = ({
     question,
+    users,
     onSubmit,
     selectedOption,
     onChange
@@ -13,8 +14,8 @@ const votesForm = ({
         </div>
         <div className="poll-body">
             <img
-                src={require(`../images/${question.avatar}.jpg`)}
-                alt={`Avatar of ${question.avatar}`}
+                src={require(`../images/${users[question.author].avatarURL}.jpg`)}
+                alt={`Avatar of ${users[question.author].avatarURL}`}
                 className="avatar-question"
             />
             <div className="vl-poll"></div>

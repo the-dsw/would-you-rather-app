@@ -7,7 +7,7 @@ import { formatQuestion, formatDate } from "../utils/helpers";
 
 const question = ({ question }) => {
 
-    if(question === null) {
+    if(!question) {
         return <p>Not question yet</p>
     }
 
