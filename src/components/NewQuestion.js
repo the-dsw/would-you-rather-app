@@ -10,15 +10,13 @@ class NewQuestion extends Component {
         redirectToReferrer: false
     }
 
-    handleSubmit = (e) => {
+    handleSubmit = async (e) => {
         e.preventDefault()
         const { optionOneText, optionTwoText } =  this.state
         const { dispatch, authedUser } = this.props
 
-        dispatch(handleSaveQuestion({optionOneText, optionTwoText, authedUser}))
-            .then(() => {
-                this.setState({ redirectToReferrer: true })
-            })
+        await dispatch(handleSaveQuestion({optionOneText, optionTwoText, authedUser}))
+        this.setState({ redirectToReferrer: true })
 
     }
 

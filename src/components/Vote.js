@@ -19,9 +19,9 @@ class Vote extends Component {
 
     handleFormSubmit = e => {
         e.preventDefault()
-        const { questionId, authedUser } = this.props
+        const { questionId, authedUser, handleSaveQuestionAnswer } = this.props
         const { selectedOption} = this.state
-        this.props.handleSaveQuestionAnswer(authedUser, questionId, selectedOption)
+        handleSaveQuestionAnswer(authedUser, questionId, selectedOption)
     }
 
     render() {
