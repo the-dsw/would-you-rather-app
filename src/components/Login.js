@@ -30,7 +30,6 @@ class Login extends Component {
                     <span className="login-continue">Please sign in to continue</span>
                 </div>
                 <div>
-                    <img src="" alt=""/>
                     <p className="login-signin">Sign In</p>
                 </div>
                 <div className="login-changer dd-wrapper">

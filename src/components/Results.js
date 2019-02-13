@@ -25,7 +25,7 @@ const results = ({
                     alt={`Avatar of ${users[question.author].avatarURL}`}
                     className="avatar-results"
                 />
-                <div className="vl-results"></div>
+                <div className="vl-results" />
                 <div className="poll-results">
                     <h3>Results:</h3>
                     <div className={userAnswer === 'optionOne' ? "your-vote-one" : "your-vote-two"}>

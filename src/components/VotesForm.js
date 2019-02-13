@@ -18,7 +18,7 @@ const votesForm = ({
                 alt={`Avatar of ${users[question.author].avatarURL}`}
                 className="avatar-question"
             />
-            <div className="vl-poll"></div>
+            <div className="vl-poll" />
             <div className="poll-view">
                 <h3>Would you rather ...</h3>
                 <form onSubmit={onSubmit} className="poll-form">

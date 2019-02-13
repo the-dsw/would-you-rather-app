@@ -1,6 +1,6 @@
 import React from 'react'
 
-export default function NoMatch({ location }) {
+export default function NoMatch () {
     return (
         <div className="notMatch">
             <h1>404</h1>

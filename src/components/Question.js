@@ -25,7 +25,7 @@ const question = ({ question }) => {
                     alt={`Avatar of ${avatar}`}
                     className="avatar-question"
                 />
-                <div className="vl"></div>
+                <div className="vl" />
                 <div className="question-view">
                     <h3>Would you rather</h3>
                     <div>

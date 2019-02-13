@@ -18,14 +18,14 @@ const leaderBoard  = (props) => {
                             alt={`Avatar of ${users[user.id].avatarURL}`}
                             className="avatar-question"
                         />
-                        <div className="vl"></div>
+                        <div className="vl" />
                         <div className="leaderboard-info">
                             <span className="info-title">{users[user.id].name}</span>
                             <span className="info-answered"> Answered Questions <span>{totalAnswers}</span></span>
-                            <div className="hl-info"></div>
+                            <div className="hl-info" />
                             <span className="info-created"> Created Questions <span>{totalQuestions}</span></span>
                         </div>
-                        <div className="vl"></div>
+                        <div className="vl" />
                         <div className="leaderboard-score">
                             <div className="score-title">score</div>
                             <div className="score-points">{score}</div>
